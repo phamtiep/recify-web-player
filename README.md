@@ -1,5 +1,5 @@
 # Recify
-Một dự án website chia sẻ âm nhạc, sound hướng tới các bản nhạc không lời. Được sử dụng làm nhạc nền cho các hoạt động thường ngày như học tập, ngủ, workout, etc...Giúp nâng cao hiệu suất công việc và thư giãn 
+Recify là một nền tảng trực tuyến chuyên cung cấp các bản nhạc không lời được tuyển chọn kỹ lưỡng, đa dạng thể loại, hướng đến việc nâng cao trải nghiệm cá nhân của người dùng trong học tập, làm việc, thư giãn và hoạt động thể chất. Nền tảng cho phép người dùng tạo playlist riêng mình, cũng như gợi ý nhạc cho người dùng dựa trên xu hướng và sự tương đồng giữa các bài nhạc.
 
 ## Description
 Đây là dự án, bài tập lớn cho lớp môn học Software Engineering INT_2208_5
