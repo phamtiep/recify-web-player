@@ -1,2 +1,2 @@
 ## Database design
-![Design database](/back-end/designDatabase.png)
+<img src="/back-end/designDatabase.png" alt="drawing" width="600"/>
