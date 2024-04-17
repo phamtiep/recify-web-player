@@ -1,2 +1,2 @@
-##Database design
-![Design database](/designDatabase.png)
+## Database design
+![Design database](/back-end/designDatabase.png)
