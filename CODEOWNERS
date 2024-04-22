@@ -1,0 +1,28 @@
+# CODEOWNERS for recify-web-player
+
+# These owners will be the default owners for everything in the repo.
+*       @phamtiep
+*       @VietAnh-AI2-UET
+*       @vinhoanglong
+
+# Assign ownership `back-end` directory to @backend-team
+*       @phamtiep
+
+# Assign ownership of the `front-end` directory to @frondend-team
+*       @vinhhoanglong
+
+# Assign ownership of the `modelAI` directory to @AI-team
+*       @VietAnh-AI2-UET
+
+# Assign ownership of the Documentation to @doc-team
+*       @vinhhoanglong
+*       @VietAnh-AI2-UET
+
+# Assign ownership of the Database scripts to @db-team
+*       @phamtiep
+
+# Assign ownership of the root README file to @root-owner
+*       @phamtiep
+
+# Assign ownership of any files in the `design` directory to @design-team
+*       @phamtiep
