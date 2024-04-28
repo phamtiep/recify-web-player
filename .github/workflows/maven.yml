@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: back-end/recify
+        working-directory: ./back-end/recify
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 21
