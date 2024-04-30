@@ -35,7 +35,7 @@ jobs:
       uses: shogo82148/actions-setup-mysql@v1
       with:
         mysql-version: "8.0"
-        my-cnf:
+        my-cnf: |
          username = root
          password = tieptoan10
     - run: mysql -uroot -e 'SELECT version()'
