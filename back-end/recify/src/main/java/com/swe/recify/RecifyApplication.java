@@ -31,25 +31,4 @@ public class RecifyApplication {
     SpringApplication.run(RecifyApplication.class);
   }
 
-  @Bean
-  public CommandLineRunner demo(ViewManagerRepository viewManagerRepository, UserRepository userRepository, MusicRepository musicRepository) {
-    return (args) -> {
-    	
-    	User userTest = new User("tiepanh2", "tieptoan10", "admin");
-    	
-    	
-    	Music musicTest = new Music("abc","def","ghi");
-    	
-    	userRepository.save(userTest);
-    	musicRepository.save(musicTest);
-    	
-    	
-    	ViewManager viewManagerTest = new ViewManager(musicTest, userTest, 8);
-    	
-    	viewManagerRepository.save(viewManagerTest);
-    	
-    	
-    	
-    };
-  }
 }
