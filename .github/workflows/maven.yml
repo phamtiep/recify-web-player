@@ -38,7 +38,7 @@ jobs:
         my-cnf: |
          username=root
          password=tieptoan10
-      run: mysql -uroot -e 'SELECT version()'
+    - run: mysql -uroot -e 'SELECT version()'
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
