@@ -10,13 +10,12 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "16-database-connect-with-hibernate"]
   pull_request:
     branches: [ "main" ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -29,20 +28,21 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
         cache: maven
-    services:
-      mysql:
-        image: mysql:8.0
-        env:
-       
-          MYSQL_DATABASE: mydb
-          MYSQL_ROOT_PASSWORD: tieptoan10
-        ports:
-          # Opens port 3306 on service container and host
-          # https://docs.github.com/en/actions/using-containerized-services/about-service-containers
-          - 3306:3306
+
+   
+    env:
+      DB_DATABASE: test_db
+      DB_USER: root
+      DB_PASSWORD: root
+    
+    steps:
+        - name: Set up MySQL
+          run: |
+            sudo /etc/init.d/mysql start
+            mysql -e 'CREATE DATABASE ${{ env.DB_DATABASE }};' -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}
           	
      
-     - name: Build with Maven
-     run: mvn -B package --file pom.xml
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
 
 
