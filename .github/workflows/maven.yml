@@ -19,26 +19,27 @@ jobs:
     defaults:
       run:
         working-directory: ./back-end/recify 
-      env:
+    env:
         DB_DATABASE: mydb
         DB_USER: root
         DB_PASSWORD: root
     
-      steps:
-        
-      - run: |
+    steps:
+        - name: Set up JDK
+        - uses: actions/setup-java@v3
+          with:
+            java-version: '21'
+            distribution: 'temurin'
+            cache: maven
+        - name: Build with Maven
+        - run: mvn -B package --file pom.xml      
+        - run: |
              sudo /etc/init.d/mysql start
              mysql -e 'CREATE DATABASE mydb;' -uroot -proot
              mysql -e 'SHOW DATABASES;' -uroot -proot
        
-      - name: Set up JDK
-      - uses: actions/setup-java@v3
-        with:
-           java-version: '21'
-           distribution: 'temurin'
-           cache: maven
+
     
-      - name: Build with Maven
-      - run: mvn -B package --file pom.xml
+
 
 
