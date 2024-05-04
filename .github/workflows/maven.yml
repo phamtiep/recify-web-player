@@ -9,7 +9,7 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ "main", "16-database-connect-with-hibernate", "21-service-business-logic"]
+    branches: [ "main", "16-database-connect-with-hibernate", "21-service-business-controller"]
   pull_request:
     branches: [ "main" ]
 
