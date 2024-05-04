@@ -27,20 +27,22 @@ public class Music implements Serializable {
 	 	
 	
 		@Id
-	    @GeneratedValue(strategy = GenerationType.AUTO )
+	    @GeneratedValue(strategy = GenerationType.IDENTITY )
 	    private Long id;
 	 
 	    @NotEmpty
 	    @Column(name="music_name", nullable=false)
 	    private String musicName;
 	 
-	    @NotEmpty
 	    @Column(name="length_by_seconds", nullable=false)
-	    private String lengBySeconds;
+	    private int lengBySeconds;
 	    
 	    @NotEmpty
 	    @Column(name="path_to_file", nullable=false)
 	    private String pathToFile;
+	    
+	    @Column(name= "category", nullable = false)
+	    private String category;
 	    
 	    @ManyToMany( mappedBy = "MusicList")
 	    @Cascade({CascadeType.ALL})
@@ -67,11 +69,11 @@ public class Music implements Serializable {
 			this.musicName = musicName;
 		}
 
-		public String getLengBySeconds() {
+		public int getLengBySeconds() {
 			return lengBySeconds;
 		}
 
-		public void setLengBySeconds(String lengBySeconds) {
+		public void setLengBySeconds(int lengBySeconds) {
 			this.lengBySeconds = lengBySeconds;
 		}
 
@@ -91,10 +93,10 @@ public class Music implements Serializable {
 				super();
 			}
 
-		public Music(@NotEmpty String musicName, @NotEmpty String lengBySeconds, @NotEmpty String pathToFile
+		public Music(@NotEmpty String musicName,int lengBySeconds, @NotEmpty String pathToFile, @NotEmpty String category
 				) {
 			super();
-			
+			this.category = category;
 			this.musicName = musicName;
 			this.lengBySeconds = lengBySeconds;
 			this.pathToFile = pathToFile;
