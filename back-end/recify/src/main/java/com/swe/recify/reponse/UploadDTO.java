@@ -1,6 +1,6 @@
 package com.swe.recify.reponse;
 
-public class UpLoadReponse {
+public class UploadDTO {
 	String nameFile;
 	long size;
 	

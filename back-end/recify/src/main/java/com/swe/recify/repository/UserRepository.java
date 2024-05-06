@@ -13,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotEmpty;
 
 public interface UserRepository extends CrudRepository<User, Long> {
-		
+        User findUserByUserName(@NotEmpty String userName);
+        User findUserByUsernameAndPassword(@NotEmpty String userName, @NotEmpty String password);
 
 }
