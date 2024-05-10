@@ -18,7 +18,7 @@ function Navbar() {
             <NavLink to={"/login"}>
             <li>
                 <a href="#" class="flex md:inline-flex p-4 items-center hover:bg-gray-50">
-                    <span>Login</span>
+                    <span>Login/Logout </span>
                 </a>
             </li>
             </NavLink>
