@@ -35,8 +35,8 @@ public class WebSecurityConfig  {
                         .requestMatchers(HttpMethod.GET, "/api/user/login/**").permitAll()
                                 .requestMatchers(HttpMethod.POST, "/api/user/register/**").permitAll()
                                 .requestMatchers(HttpMethod.GET,"/api/music/getFile/**").permitAll()
-                                .requestMatchers(HttpMethod.POST, "/api/music/uploadFile").hasAnyRole("ROLE_ADMIN")
-                                .requestMatchers(HttpMethod.GET, "/api/music/uploadFile").hasAnyRole("ROLE_ADMIN"));
+                                .requestMatchers(HttpMethod.POST, "/api/music/uploadFile").hasAnyRole("ADMIN")
+                                .requestMatchers(HttpMethod.GET, "/api/music/uploadFile").hasAnyRole("ADMIN"));
 
 
 
