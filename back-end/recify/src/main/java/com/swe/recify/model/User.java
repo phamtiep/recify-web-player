@@ -1,118 +1,109 @@
 package com.swe.recify.model;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotEmpty;
-
-import org.hibernate.*;
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
-
 @Entity
-@Table(name="user")
-public class User  implements Serializable {
-	
-	    @Id
-	    @GeneratedValue(strategy = GenerationType.AUTO )
-	    private Long id;
-	 
-	    @NotEmpty
-	    @Column(name="username", nullable=false)
-	    private String username;
-	 
-	    @NotEmpty
-	    @Column(name="password", nullable=false)
-	    private String password;
-	    
-	    @NotEmpty
-	    @Column(name="role", nullable=false)
-	    private String role;
-	    
-	    
-	    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-	    @Cascade({CascadeType.ALL})
-	    private Set<Playlist> AllPlaylist = new HashSet<Playlist>(0);
-	    
-	    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-	    @Cascade({CascadeType.ALL})
-	    private Set<ViewManager> ViewManager = new HashSet<ViewManager>(0);
-	    
-	    public Set<Playlist> getAllPlaylist() {
-			return AllPlaylist;
-		}
+@Table(name = "user")
+public class User implements Serializable {
 
-		public void setAllPlaylist(Set<Playlist> allPlaylist) {
-			AllPlaylist = allPlaylist;
-		}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-		public User() {
-	    	
-	    }
-	    
-	    public User(String username, String password, String role){
-	    	this.username = username;
-	    	this.password = password;
-	    	this.role = role;
-	    	
-	    }
+    @NotEmpty
+    @Column(name = "username", nullable = false)
+    private String username;
+
+    @NotEmpty
+    @Column(name = "password", nullable = false)
+    private String password;
+
+    @NotEmpty
+    @Column(name = "role", nullable = false)
+    private String role;
 
 
-		public Long getId() {
-			return id;
-		}
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    @Cascade({CascadeType.ALL})
+    private Set<Playlist> AllPlaylist = new HashSet<Playlist>(0);
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    @Cascade({CascadeType.ALL})
+    private Set<ViewManager> ViewManager = new HashSet<ViewManager>(0);
+
+    public Set<Playlist> getAllPlaylist() {
+        return AllPlaylist;
+    }
+
+    public void setAllPlaylist(Set<Playlist> allPlaylist) {
+        AllPlaylist = allPlaylist;
+    }
+
+    public User() {
+
+    }
+
+    public User(String username, String password, String role) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+
+    }
 
 
-		public void setId(Long id) {
-			this.id = id;
-		}
+    public Long getId() {
+        return id;
+    }
 
 
-		public Set<ViewManager> getViewManager() {
-			return ViewManager;
-		}
-
-		public void setViewManager(Set<ViewManager> viewManager) {
-			ViewManager = viewManager;
-		}
-
-		public String getUsername() {
-			return username;
-		}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
 
-		public void setUsername(String username) {
-			this.username = username;
-		}
+    public Set<ViewManager> getViewManager() {
+        return ViewManager;
+    }
+
+    public void setViewManager(Set<ViewManager> viewManager) {
+        ViewManager = viewManager;
+    }
+
+    public String getUsername() {
+        return username;
+    }
 
 
-		public String getPassword() {
-			return password;
-		}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
 
-		public void setPassword(String password) {
-			this.password = password;
-		}
+    public String getPassword() {
+        return password;
+    }
 
 
-		public String getRole() {
-			return role;
-		}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
 
-		public void setRole(String role) {
-			this.role = role;
-		}
-	
+    public String getRole() {
+        return role;
+    }
+
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
 }
 

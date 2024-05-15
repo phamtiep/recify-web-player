@@ -1,20 +1,11 @@
 package com.swe.recify.reponse;
 
+import lombok.Setter;
+
+@Setter
 public class UploadDTO {
-	String nameFile;
-	long size;
-	
-	
-	public String getNameFile() {
-		return nameFile;
-	}
-	public void setNameFile(String nameFile) {
-		this.nameFile = nameFile;
-	}
-	public long getSize() {
-		return size;
-	}
-	public void setSize(long size) {
-		this.size = size;
-	}
+    String nameFile;
+    long size;
+
+
 }
