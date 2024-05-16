@@ -10,7 +10,7 @@ api = Api(app)
 #xu li du lieu
 class Process(Resource):
     def get(self, music_id):
-        model = Recommender(metric='cosine', algorithm='brute', data=acsdb.viewcnt_data, table=acsdb.viewcnt_data)
+        model = Recommender(metric='cosine', algorithm='brute', data=acsdb.viewcnt_data, table=acsdb.viewcnt_table)
         recommend_list = model.make_recommendation(song_id = music_id, n_recommendations=10)
         return recommend_list
 
