@@ -11,7 +11,7 @@ api = Api(app)
 class Process(Resource):
     def get(self, music_id):
         model = Recommender(metric='cosine', algorithm='brute', data=acsdb.viewcnt_data, table=acsdb.viewcnt_table)
-        recommend_list = model.make_recommendation(song_id = music_id, n_recommendations=10)
+        recommend_list = model.make_recommendation(song_id = music_id, n_recommendations=5)
         return recommend_list
 
 api.add_resource(Process, '/recommend/<int:music_id>')
