@@ -3,28 +3,28 @@ import { NavLink } from 'react-router-dom'
 
 function Navbar() {
   return (
-    <nav class="flex px-4 border-b md:shadow-lg items-center relative">
+    <nav class="flex px-4 border-b md:shadow-lg items-center relative"  style={{ backgroundColor: 'rgba(0,0,70, 0.5)', color: 'white' }}>
         <div class="text-lg font-bold md:py-0 py-4">
             Recify
         </div>
         <ul class="md:px-2 ml-auto md:flex md:space-x-2 absolute md:relative top-full left-0 right-0">
             <NavLink to={"/"}>
             <li>
-                <a href="#" class="flex md:inline-flex p-4 items-center hover:bg-gray-50">
+                <a href="#" class="flex md:inline-flex p-4 items-center hover:bg-blue-300">
                     <span>Home</span>
                 </a>
             </li>
            </NavLink>
             <NavLink to={"/login"}>
             <li>
-                <a href="#" class="flex md:inline-flex p-4 items-center hover:bg-gray-50">
+                <a href="#" class="flex md:inline-flex p-4 items-center hover:bg-blue-300">
                     <span>Login/Logout </span>
                 </a>
             </li>
             </NavLink>
             <NavLink to = "/register">
             <li>
-                <a href="#" class="flex md:inline-flex p-4 items-center hover:bg-gray-50">
+                <a href="#" class="flex md:inline-flex p-4 items-center hover:bg-blue-300">
                     <span>Register</span>
                 </a>
             </li>

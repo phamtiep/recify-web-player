@@ -1,35 +1,42 @@
 import "../components/login.css";
-import {useState} from "react";
+import {useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-function Login(){
+function Login({isLoggedIn ,setIsLoggedIn}){
   const navigate = useNavigate();
   
+  useEffect(() => {
+    const loggedIn = localStorage.getItem("isLoggedIn") === "true";
+    setIsLoggedIn(loggedIn);
+  }, [setIsLoggedIn]);
 
   const handleLogin = () =>{
-    
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const user = users.find(user => user.username === username && user.password === password);
+
     //if(username&&password){
     //  navigate("/")
     //}
-    if(password.length >= 6){
-      if(username&&password){
-        setIsLoggedIn(true)
-        setUsername("")
-        setPassword("")
-      }else{
-        setErrorMessage("Passwords incorrect or some fields are empty."); // Set error message
-      }
-
-    }else{
-      setErrorMessage("Passwords must be at least 6 character long");
+    
+    if (user) {
+      setIsLoggedIn(true);
+      localStorage.setItem("isLoggedIn", "true");
+      setUsername("");
+      setPassword("");
+      navigate("/");
+    } else {
+      setErrorMessage("Invalid username or password.");
     }
     
     
   }
   const handleLogout = () => {
     // Clear any user authentication state
-    setIsLoggedIn(false);
+    
     // Navigate user to the login page
+    localStorage.setItem("isLoggedIn", "false");
+    setIsLoggedIn(false);
     navigate("/login");
+    
   };
   const handleBackHome = () => {
     navigate("/")
@@ -38,7 +45,8 @@ function Login(){
   const [errorMessage, setErrorMessage] = useState("");
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login status
+
+ // Track login status
     return (
         <div className="login">
           <div className="loginWrapper">

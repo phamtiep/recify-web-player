@@ -7,7 +7,17 @@ export default function Register() {
     const handleRegister = () =>{
       if(password.length >= 6){
         if((username&&password)&&(password === password2)){
-          navigate("/")
+          const users = JSON.parse(localStorage.getItem("users")) || [];
+          const userExists = users.some(user => user.username === username);
+          if(userExists){
+            setErrorMessage("Username already exists. Please choose another.");
+          }else{
+            users.push({ username, password });
+            localStorage.setItem("users", JSON.stringify(users));
+            navigate("/login");
+          }
+
+         
         }
         else{
           setErrorMessage("Passwords do not match or some fields are empty."); // Set error message
