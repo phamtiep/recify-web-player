@@ -17,6 +17,7 @@ class Process(Resource):
 api.add_resource(Process, '/recommend/<int:music_id>')
 
 if __name__ == '__main__':
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', '-r', 'requirements.txt'])
     app.run(debug = True)
 
 
