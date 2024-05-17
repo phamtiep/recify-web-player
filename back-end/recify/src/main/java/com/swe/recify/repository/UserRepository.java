@@ -1,18 +1,16 @@
 package com.swe.recify.repository;
 
-import java.util.List;
-
-import org.springframework.data.repository.CrudRepository;
-
 import com.swe.recify.model.User;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotEmpty;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
+@Repository
 public interface UserRepository extends CrudRepository<User, Long> {
-		
+    User findUserByUsername(@NotEmpty String userName);
+
+    User findUserByUsernameAndPassword(@NotEmpty String userName, @NotEmpty String password);
 
 }
