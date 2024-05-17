@@ -1,3 +1,5 @@
+import subprocess
+import sys
 import requests
 import access_Database as acsdb
 from flask import Flask
