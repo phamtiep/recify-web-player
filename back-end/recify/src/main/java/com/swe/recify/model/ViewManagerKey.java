@@ -3,9 +3,12 @@ package com.swe.recify.model;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import jakarta.validation.constraints.NotEmpty;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
-
+@Getter
+@Setter
 @Embeddable
 public class ViewManagerKey implements Serializable {
     @Column(name = "music_id", nullable = false)
@@ -16,21 +19,7 @@ public class ViewManagerKey implements Serializable {
     @NotEmpty
     Long userId;
 
-    public Long getMusicId() {
-        return musicId;
-    }
-
-    public void setMusicId(Long musicId) {
-        this.musicId = musicId;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
+   
 
     @Override
     public int hashCode() {

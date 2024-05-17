@@ -6,6 +6,7 @@ import com.swe.recify.service.MusicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,23 +21,23 @@ public class MusicController {
     @Autowired
     MusicService musicService;
 
-    @RequestMapping(value = "/uploadFile", method = {RequestMethod.POST, RequestMethod.GET})
+    @PostMapping  (value = "/uploadFile/")
     public ResponseEntity<UploadDTO> upLoadFile(@RequestParam("file") MultipartFile file,
                                                 @RequestParam("duration") int duration, @RequestParam("category") String category) {
 
         long sizeFile = musicService.uploadMusic(file, duration, category);
         String fileName = file.getOriginalFilename();
 
-        UploadDTO upLoadReponse = new UploadDTO();
+        UploadDTO upLoadResponse = new UploadDTO();
 
-        upLoadReponse.setNameFile(fileName);
-        upLoadReponse.setSize(sizeFile);
+        upLoadResponse.setNameFile(fileName);
+        upLoadResponse.setSize(sizeFile);
 
-        return new ResponseEntity<>(upLoadReponse, HttpStatus.OK);
+        return new ResponseEntity<>(upLoadResponse, HttpStatus.OK);
 
     }
 
-    @RequestMapping("/getFile/{idFile}")
+    @GetMapping("/getFile/{idFile}")
     public ResponseEntity<Resource> getFile(@PathVariable("idFile") long idFile) throws IOException {
 
         HttpHeaders headers = new HttpHeaders();
@@ -51,5 +52,13 @@ public class MusicController {
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + musicReponse.getFile().getFilename() + "\"")
                 .body(musicReponse.getFile());
     }
+
+    @DeleteMapping("/deleteMusic/{idFile}")
+    public ResponseEntity<String> deleteMusic(@PathVariable("idFile") long idFile) {
+
+        musicService.deleteMusic(idFile);
+        return new ResponseEntity<>("Deleted Success", HttpStatus.OK);
+    }
+
 }
 

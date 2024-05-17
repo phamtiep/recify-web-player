@@ -2,6 +2,8 @@ package com.swe.recify.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
@@ -12,6 +14,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "music")
+@Getter
+@Setter
 public class Music implements Serializable {
 
 
@@ -42,37 +46,7 @@ public class Music implements Serializable {
     private Set<ViewManager> ViewManager = new HashSet<ViewManager>(0);
 
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getMusicName() {
-        return musicName;
-    }
-
-    public void setMusicName(String musicName) {
-        this.musicName = musicName;
-    }
-
-    public int getLengBySeconds() {
-        return lengBySeconds;
-    }
-
-    public void setLengBySeconds(int lengBySeconds) {
-        this.lengBySeconds = lengBySeconds;
-    }
-
-    public String getPathToFile() {
-        return pathToFile;
-    }
-
-    public void setPathToFile(String pathToFile) {
-        this.pathToFile = pathToFile;
-    }
 
     public void addPlaylist(Playlist e) {
         playlist.add(e);

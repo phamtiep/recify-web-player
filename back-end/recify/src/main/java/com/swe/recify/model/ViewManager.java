@@ -1,18 +1,29 @@
 package com.swe.recify.model;
 
+
 import jakarta.persistence.*;
+import jakarta.persistence.Table;
+import jakarta.transaction.Transactional;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.DynamicUpdate;
+
 
 
 @Entity
 @Table(name = "view_manager")
+@Getter
+@Setter
+
 public class ViewManager {
     @EmbeddedId
     ViewManagerKey id = new ViewManagerKey();
 
     @ManyToOne
     @MapsId("musicId")
+    @Cascade({CascadeType.ALL})
     @JoinColumn(name = "music_id")
     Music music;
 
@@ -27,37 +38,7 @@ public class ViewManager {
     @Cascade({CascadeType.ALL})
     int viewCount;
 
-    public ViewManagerKey getId() {
-        return id;
-    }
 
-    public void setId(ViewManagerKey id) {
-        this.id = id;
-    }
-
-    public Music getMusic() {
-        return music;
-    }
-
-    public void setMusic(Music music) {
-        this.music = music;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public int getViewCount() {
-        return viewCount;
-    }
-
-    public void setViewCount(int viewCount) {
-        this.viewCount = viewCount;
-    }
 
 
     public ViewManager() {
@@ -71,5 +52,11 @@ public class ViewManager {
         this.viewCount = viewCount;
     }
 
+
+    public int incrementViewCount() {
+        this.setViewCount(this.getViewCount() + 1);
+
+        return this.getViewCount();
+    }
 
 }

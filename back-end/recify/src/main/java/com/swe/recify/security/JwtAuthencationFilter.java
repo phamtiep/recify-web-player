@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.constraints.Null;
 import lombok.extern.slf4j.Slf4j;
 
+import org.apache.catalina.connector.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.util.Pair;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -19,8 +20,11 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 @Component
 @Slf4j
@@ -43,6 +47,7 @@ public class JwtAuthencationFilter extends OncePerRequestFilter {
         try {
             if(isByPassToken(request)){
                 filterChain.doFilter(request, response);
+                System.out.println("done");
                 return;
             }
             String jwt = getJwtFromRequest(request);
@@ -73,18 +78,29 @@ public class JwtAuthencationFilter extends OncePerRequestFilter {
 
     boolean isByPassToken(HttpServletRequest request){
         final List<Pair<String,String>> byPassTokens = Arrays.asList(
-                Pair.of("/api/user/login","GET"),
-                Pair.of("/api/user/register/","POST")
+                Pair.of("/api/user/login/", "GET"),
+                Pair.of("/api/user/register/", "POST"),
+                Pair.of("/api/music/getFile/", "GET"),
+                Pair.of("/api/updateView/increase/", "POST")
         );
+
+
+
+
         String requestPath = request.getServletPath();
+        System.out.println(requestPath);
         String requestMethod = request.getMethod();
-        System.out.println(requestPath + " " + requestMethod);
-        if(byPassTokens.contains(Pair.of(requestPath, requestMethod))){
-            System.out.println("1");
-            return  true;
-        }
-        return true;
+
+
+
+        return containsMatch(requestPath ,byPassTokens.stream().map(Pair::getFirst).toList());
     }
+    public static boolean containsMatch(String string, List<String> regexList) {
+        return regexList.stream()
+                .map(Pattern::compile)
+                .anyMatch(regex -> regex.matcher(string).find());
+    }
+
 
 
 

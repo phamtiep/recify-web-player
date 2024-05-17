@@ -1,9 +1,7 @@
 package com.swe.recify.security;
 
 import com.swe.recify.model.User;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,7 +11,8 @@ import java.util.Collection;
 import java.util.List;
 
 @Data
-
+@Getter
+@Setter
 
 public class CustomUserDetail implements UserDetails {
 
@@ -34,6 +33,12 @@ public class CustomUserDetail implements UserDetails {
     public String getPassword() {
         return getPassword();
     }
+
+    public User getUser() {
+        return user;
+    }
+
+
 
     @Override
     public String getUsername() {

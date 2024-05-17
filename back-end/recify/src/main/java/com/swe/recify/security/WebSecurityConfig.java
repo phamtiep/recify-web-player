@@ -35,10 +35,17 @@ public class WebSecurityConfig  {
                         .requestMatchers(HttpMethod.GET, "/api/user/login/**").permitAll()
                                 .requestMatchers(HttpMethod.POST, "/api/user/register/**").permitAll()
                                 .requestMatchers(HttpMethod.GET,"/api/music/getFile/**").permitAll()
-                                .requestMatchers(HttpMethod.POST, "/api/music/uploadFile").hasAnyRole("ADMIN")
-                                .requestMatchers(HttpMethod.GET, "/api/music/uploadFile").hasAnyRole("ADMIN"));
-
-
+                                .requestMatchers(HttpMethod.GET, "/api/user/getAllPlaylist/").hasAnyRole("ADMIN","USER")
+                                .requestMatchers(HttpMethod.POST, "/api/music/uploadFile/").hasAnyRole("ADMIN")
+                                .requestMatchers(HttpMethod.GET, "/api/music/uploadFile/").hasAnyRole("ADMIN")
+                                .requestMatchers(HttpMethod.GET, "/api/playlist/getAllMusicPlaylist/**")
+                                        .hasAnyRole("ADMIN", "USER")
+                                .requestMatchers(HttpMethod.DELETE, "/api/music/deleteMusic/**").hasAnyRole("ADMIN")
+                                .requestMatchers(HttpMethod.POST, "/api/user/createNewPlaylist/**").hasAnyRole("ADMIN", "USER")
+                                .requestMatchers(HttpMethod.POST, "/api/playlist/addMusicToPlaylist/**").hasAnyRole("ADMIN", "USER")
+                                .requestMatchers(HttpMethod.DELETE, "/api/playlist/removeMusicFromPlaylist/**").hasAnyRole("ADMIN","USER")
+                                .requestMatchers(HttpMethod.POST, "/api/updateView/increase/**").permitAll()
+                                .requestMatchers(HttpMethod.DELETE, "/api/playlist/deletePlaylist/**").hasAnyRole("USER"));
 
 
 

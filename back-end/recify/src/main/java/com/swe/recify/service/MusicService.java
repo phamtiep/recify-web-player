@@ -27,7 +27,17 @@ public class MusicService {
 
         Optional<Music> resultList = musicRepository.findById(id);
         return resultList.orElse(null);
+    }
 
+    public long deleteById(long id) {
+        return  musicRepository.deleteById(id);
+    }
+
+    public long deleteMusic(long musicID) {
+
+        File currentDir = new File(this.findById(musicID).getPathToFile());
+        currentDir.delete();
+        return musicID;
     }
 
     public long uploadMusic(MultipartFile multipartFile, int duration, String category) {

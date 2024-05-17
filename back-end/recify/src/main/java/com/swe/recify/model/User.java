@@ -2,6 +2,8 @@ package com.swe.recify.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
@@ -11,6 +13,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "user")
+@Getter
+@Setter
 public class User implements Serializable {
 
     @Id
@@ -55,6 +59,10 @@ public class User implements Serializable {
         this.password = password;
         this.role = role;
 
+    }
+
+    public void removePlaylist(Playlist playlist){
+        this.getAllPlaylist().remove(playlist);
     }
 
 

@@ -2,19 +2,24 @@ package com.swe.recify.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "playlist")
-public class Playlist {
+@Getter
+@Setter
+public class Playlist implements Serializable {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 
@@ -37,13 +42,6 @@ public class Playlist {
     private Set<Music> MusicList = new HashSet<Music>(0);
 
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
 
     public Playlist() {
@@ -57,17 +55,14 @@ public class Playlist {
 
     }
 
-    public Set<Music> getMusicList() {
-        return MusicList;
-    }
-
-    public void setMusicList(Set<Music> musicList) {
-        MusicList = musicList;
-    }
 
     public void addMusic(Music e) {
         MusicList.add(e);
 
+    }
+
+    public  void removeMusic(Music e) {
+        MusicList.remove(e);
     }
 
 }
