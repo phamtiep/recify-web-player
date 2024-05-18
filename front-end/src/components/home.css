@@ -1,0 +1,36 @@
+.homepage {
+    
+  position: relative;
+  padding: 120px;
+  height: 100vh;
+  background-color: #000000; /* Fallback color */
+  background-image: url('../assets/background.png'); /* Adjust the path */
+  background-size: cover;
+  background-position: center;
+  
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1; /* Adjust the opacity of the background image */
+  /* If you don't need an overlay, you can skip this part */
+  background-color: rgba(0, 0, 0, 0.5); /* Overlay color */
+}
+.text-animation {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: textReveal 2s steps(40, end) forwards;
+}
+
+@keyframes textReveal {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
