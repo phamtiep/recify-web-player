@@ -1,32 +1,24 @@
 package com.swe.recify.reponse;
 
+import com.swe.recify.model.Music;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.core.io.Resource;
 
+@Getter
+@Setter
 public class MusicReponse {
 
     int duration;
-    Resource file;
+    String pathFile;
 
 
-    public MusicReponse(Resource file) {
+    public MusicReponse(Music music) {
         super();
-        this.file = file;
+        this.duration = music.getLengBySeconds();
+        this.pathFile = music.getPathToFile();
     }
 
-    public int getDuration() {
-        return duration;
-    }
 
-    public void setDuration(int duration) {
-        this.duration = duration;
-    }
-
-    public Resource getFile() {
-        return file;
-    }
-
-    public void setFile(Resource file) {
-        this.file = file;
-    }
 
 }

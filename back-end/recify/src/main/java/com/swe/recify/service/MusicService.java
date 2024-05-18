@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
+import java.util.List;
 import java.util.Optional;
 
 @Service("musicService")
@@ -35,57 +36,58 @@ public class MusicService {
 
     public long deleteMusic(long musicID) {
 
-        File currentDir = new File(this.findById(musicID).getPathToFile());
-        currentDir.delete();
+        musicRepository.deleteById(musicID);
         return musicID;
     }
-
-    public long uploadMusic(MultipartFile multipartFile, int duration, String category) {
-
-        String pathCategory = null;
-        switch (category) {
-            case "chill":
-                pathCategory = "chill-music/";
-                break;
-            case "study":
-                pathCategory = "study-music/";
-                break;
-            case "workout":
-                pathCategory = "workout-music/";
-                break;
-            default:
-                break;
-        }
-
-        String fileName = multipartFile.getOriginalFilename();
-        File currentDir = new File("MusicUpload/" + pathCategory + fileName);
-
-        String path = currentDir.getPath();
-
-        if (!currentDir.exists()) {
-            currentDir.mkdir();
-        }
-        try (InputStream inputStream = multipartFile.getInputStream()) {
-            String filePath = currentDir.getPath();
-            Files.copy(inputStream, currentDir.toPath(), StandardCopyOption.REPLACE_EXISTING);
-        } catch (IOException ioe) {
-            System.out.println("cant save file");
-        }
-        musicRepository.save(new Music(fileName, duration, currentDir.getPath(), category));
-
-        return multipartFile.getSize();
+    public long uploadMusic(String  pathFile, String fileName,int duration,String category) {
+            Music music = new Music(fileName, duration, pathFile, category);
+            return musicRepository.save(music).getId();
+    }
+    public List<Music> getAllMusic(){
+        return (List<Music>) musicRepository.findAll();
     }
 
-    public UrlResource getMusicFile(Music music) throws IOException {
+//    public long uploadMusic(MultipartFile multipartFile, int duration, String category) {
+//
+//        String pathCategory = null;
+//        switch (category) {
+//            case "chill":
+//                pathCategory = "chill-music/";
+//                break;
+//            case "study":
+//                pathCategory = "study-music/";
+//                break;
+//            case "workout":
+//                pathCategory = "workout-music/";
+//                break;
+//            default:
+//                break;
+//        }
+//
+//        String fileName = multipartFile.getOriginalFilename();
+//        File currentDir = new File("MusicUpload/" + pathCategory + fileName);
+//
+//        String path = currentDir.getPath();
+//
+//        if (!currentDir.exists()) {
+//            currentDir.mkdir();
+//        }
+//        try (InputStream inputStream = multipartFile.getInputStream()) {
+//            String filePath = currentDir.getPath();
+//            Files.copy(inputStream, currentDir.toPath(), StandardCopyOption.REPLACE_EXISTING);
+//        } catch (IOException ioe) {
+//            System.out.println("cant save file");
+//        }
+//        musicRepository.save(new Music(fileName, duration, currentDir.getPath(), category));
+//
+//        return multipartFile.getSize();
+//    }
 
-        File file = new File(music.getPathToFile());
-        UrlResource resource = new UrlResource(file.toURI());
-        return resource;
-    }
+
 
     public MusicReponse getMusicReponseByID(long id) throws IOException {
         Music music = this.findById(id);
-        MusicReponse res = new MusicReponse(this.getMusicFile(music));
+        MusicReponse res = new MusicReponse(music);
         res.setDuration(music.getLengBySeconds());
         return res;
     }

@@ -33,6 +33,7 @@ INSERT INTO mydb.user (username, password, role) VALUES ('user12', 'password12',
 
 -- Insert data into playlist table
 INSERT INTO mydb.playlist (user_id, playlist_name) VALUES (1, 'Playlist1');
+INSERT INTO mydb.playlist (user_id, playlist_name) VALUES (1, 'Playlist2');
 INSERT INTO mydb.playlist (user_id, playlist_name) VALUES (2, 'Playlist2');
 INSERT INTO mydb.playlist (user_id, playlist_name) VALUES (3, 'Playlist3');
 INSERT INTO mydb.playlist (user_id, playlist_name) VALUES (4, 'Playlist4');
