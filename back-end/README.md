@@ -1,2 +1,3 @@
 ## Database design
-<img src="/back-end/designDatabase.png" alt="drawing" width="600"/>
+
+<img src="../back-end/designDatabase.png" alt="drawing" width="600"/>
