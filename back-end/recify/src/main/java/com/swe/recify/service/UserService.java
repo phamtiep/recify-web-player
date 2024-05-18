@@ -7,6 +7,8 @@ import com.swe.recify.repository.PlaylistRepository;
 import com.swe.recify.repository.UserRepository;
 import com.swe.recify.security.CustomUserDetail;
 import com.swe.recify.security.JwtTokenProvider;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -27,6 +29,9 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     private PlaylistService playlistService;
+
+
+
 
     User DTOtoUser(UserDTO userDTO) {
         return new User(userDTO.getUsername(), userDTO.getPassword(), "USER");
@@ -57,6 +62,14 @@ public class UserService implements UserDetailsService {
 
     }
 
+    public String changeRole(long userId, String role) {
+        User user = userRepository.findById(userId).orElse(null);
+        assert user != null;
+        user.setRole(role);
+        userRepository.save(user);
+        return role;
+    }
+
     public String addPlaylist(String name, String bearerToken){
         User user = userRepository.findUserByUsername(jwtTokenProvider.getUsernameFromJWT(bearerToken.substring(7)));
         Playlist playlist = new Playlist(user, name);
@@ -64,8 +77,10 @@ public class UserService implements UserDetailsService {
     }
 
     @Transactional
-    public void removePlaylist(long playlistId){
-        playlistService.deleteById(playlistId);
+    public void removePlaylist(String bearerToken, long playlistId){
+        User user = userRepository.findUserByUsername(jwtTokenProvider.getUsernameFromJWT(bearerToken.substring(7)));
+        Playlist playlist = playlistService.findById(playlistId);
+        user.removePlaylist(playlist);
 
     }
 

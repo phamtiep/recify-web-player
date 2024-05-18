@@ -28,13 +28,14 @@ public class Playlist implements Serializable {
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
+//    @Cascade({CascadeType.PERSIST})
+    @JoinColumn(name = "user_id", nullable = false, updatable = false)
     private User user;
 
 
     //
     @ManyToMany
-    @Cascade({CascadeType.ALL})
+//    @Cascade({CascadeType.ALL})
     @JoinTable(name = "playlist_has_music",
             joinColumns = @JoinColumn(name = "playlist_id"),
             inverseJoinColumns = @JoinColumn(name = "music_id")

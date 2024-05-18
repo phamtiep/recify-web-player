@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -34,12 +35,12 @@ public class User implements Serializable {
     private String role;
 
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    @Cascade({CascadeType.ALL})
+    @OneToMany(orphanRemoval = true,fetch = FetchType.LAZY,  mappedBy = "user")
+    @Cascade({CascadeType.PERSIST})
     private Set<Playlist> AllPlaylist = new HashSet<Playlist>(0);
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    @Cascade({CascadeType.ALL})
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", orphanRemoval = true)
+    @Cascade({CascadeType.PERSIST})
     private Set<ViewManager> ViewManager = new HashSet<ViewManager>(0);
 
     public Set<Playlist> getAllPlaylist() {
@@ -61,6 +62,7 @@ public class User implements Serializable {
 
     }
 
+    @Transactional
     public void removePlaylist(Playlist playlist){
         this.getAllPlaylist().remove(playlist);
     }

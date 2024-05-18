@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@CrossOrigin(maxAge = 3600)
 @RestController
 @RequestMapping("/api/playlist")
 public class PlaylistController {
@@ -27,6 +28,8 @@ public class PlaylistController {
     PlaylistService playlistService;
     @Autowired
     private MusicService musicService;
+    @Autowired
+    private UserService userService;
 
 
     @GetMapping("/getAllMusicPlaylist/{idPlaylist}")
@@ -34,7 +37,7 @@ public class PlaylistController {
 
         Playlist playlist = playlistService.findById(id);
         Set<MusicDTO> res = playlist.getMusicList().stream().map(MusicDTO::new).collect(Collectors.toSet());
-        return ResponseEntity.ok(res);
+        return ResponseEntity.ok().body(res);
     }
     @PostMapping("/addMusicToPlaylist")
     public ResponseEntity<Long> addMusicToPlaylist(@RequestParam("musicID") long musicID,
@@ -42,7 +45,7 @@ public class PlaylistController {
         playlistService.addMusicToPlaylist( playlistService.findById(playlistID), musicService.findById(musicID));
         System.out.println("da vao controller");
 
-        return ResponseEntity.ok(playlistID);
+        return ResponseEntity.ok().body(playlistID);
     }
 
     @DeleteMapping("/removeMusicFromPlaylist")
@@ -50,12 +53,13 @@ public class PlaylistController {
                                                    @RequestParam("playlistID") long playlistID){
 
         playlistService.removeMusicFromPlaylist(playlistService.findById(playlistID), musicService.findById(musicID));
-        return ResponseEntity.ok(playlistID);
+        return ResponseEntity.ok().body(playlistID);
     }
-    @DeleteMapping("/deletePlaylist/")
-    public ResponseEntity<String> deletePlaylist(@RequestParam("playlistId")long playlistId) {
-        System.out.println("da vao controller");
-        playlistService.deleteById(playlistId);
+    @DeleteMapping("/deletePlaylist")
+    public ResponseEntity<String> deletePlaylist(@RequestHeader(name="Authorization")String token,
+                                                        @RequestParam("playlistId")long playlistId) {
+
+        userService.removePlaylist(token, playlistId);
         return  ResponseEntity.ok().body("xoa thanh cong");
     }
 
