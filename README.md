@@ -7,7 +7,7 @@
 ## Cài đặt
 
 1. Cài đặt thư viện:
-- pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 ## Công nghệ sử dụng
 
@@ -19,6 +19,8 @@
 - Gợi ý nhạc
 
 ## Báo cáo và Demo video
+
+**Google Drive:** https://drive.google.com/drive/folders/1YzY-E-3nE0N7WOVdwZZzSRvOMBpYF3fo?usp=sharing
 
 ## Thành viên
 
