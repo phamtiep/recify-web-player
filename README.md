@@ -10,7 +10,7 @@
 
 ## Báo cáo và demo video
 
-- **Link:** https://drive.google.com/drive/folders/1YzY-E-3nE0N7WOVdwZZzSRvOMBpYF3fo?usp=sharing
+- **Google DriveDrive:** https://drive.google.com/drive/folders/1YzY-E-3nE0N7WOVdwZZzSRvOMBpYF3fo?usp=sharing
 
 ## Tổng quan về ứng dụng:
 
@@ -30,10 +30,6 @@
 - Anh Ngô Công Đức, tuổi 40, là một nhạc sĩ người Việt Nam. Sinh ra và lớn lên tại Thành phố Hồ Chí Minh, từ nhỏ, Đức đã bộc lộ niềm đam mê với âm nhạc. Anh bắt đầu học piano và guitar từ khi mới 5 tuổi và nhanh chóng thể hiện năng khiếu đặc biệt. Trong suốt thời gian học tập tại trường, Đức thường xuyên tham gia các hoạt động âm nhạc và giành nhiều giải thưởng ở các cuộc thi âm nhạc dành cho học sinh. Đức bắt đầu sự nghiệp của mình bằng việc hợp tác với nhiều ca sĩ nổi tiếng và sáng tác hàng loạt ca khúc hit. Anh nhanh chóng được công nhận với phong cách âm nhạc độc đáo, kết hợp giữa truyền thống và hiện đại.
  
 - Phong cách âm nhạc của Đức hòa quyện giữa âm nhạc truyền thống Việt Nam và các xu hướng âm nhạc hiện đại. Anh luôn tìm kiếm và khám phá những âm thanh mới, không ngừng đổi mới để mang đến cho khán giả những trải nghiệm âm nhạc độc đáo. Đức đặc biệt yêu thích việc sáng tác những ca khúc mang đậm nét văn hóa và tâm hồn người Việt, truyền tải những thông điệp sâu sắc và ý nghĩa. Anh Đức có hứng thú với nền tảng âm nhạc Recify vì nền tảng này có thể cung cấp cho anh nhiều bài hát thuộc nhiều thể loại nhạc, tạo cảm hứng sáng tác cho anh.
-
-## Sơ đồ Use-Case
-
-![CNPM drawio (1)](https://github.com/phamtiep/recify-web-player/assets/144088322/dc8d6891-6fc1-4010-8dd7-634bd296574c)
 
 ## Tính năng sản phẩm:
 
@@ -90,16 +86,6 @@
 
 - Mô hình sử dụng thuật toán Collaborative filtering, mô hình K-nearest neighbor và thuật toán cosine similarity, đưa ra đề xuất dựa trên sự tương quan giữa lượt nghe của mỗi người dùng với mỗi bài nhạc.
 - Đối với mỗi bài nhạc, mô hình KNN và thuật toán cosine similarity sẽ trả về 5 bài nhạc có độ tương quan lớn nhất về số lượng lượt nghe giữa các người dùng.
-
-## Thiết kế phần mềm:
-
-- Database
-
-![database](https://github.com/phamtiep/recify-web-player/assets/144088322/005591f6-ee3a-472a-bef0-f6aee24a7ca6)
-
-- System Design
-
-![Sysdes](https://github.com/phamtiep/recify-web-player/assets/144088322/6690a0f2-5d07-48ee-a685-a1517a26a9c9)
 
 ## Bảo mật:
 
