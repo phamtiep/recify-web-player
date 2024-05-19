@@ -1,6 +1,6 @@
 ## Database design
 
-<img src="../back-end/designDatabase.png" alt="drawing" "/>
+<img src="../back-end/designDatabase.png" alt="drawing" />
 
 ## Api design
 [For more details](../back-end/apiDocument.html);
