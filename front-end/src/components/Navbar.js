@@ -14,7 +14,19 @@ function Navbar() {
                     <span>Home</span>
                 </a>
             </li>
+            <NavLink to={"/library"}>
+            <li>
+                <a href="#" class="flex md:inline-flex p-4 items-center hover:bg-blue-300">
+                    <span>Library</span>
+                </a>
+            </li>
            </NavLink>
+           <NavLink to={"/allmusic"}>
+            <li>
+                <a href="#" class="flex md:inline-flex p-4 items-center hover:bg-blue-300">
+                    <span>All Music </span>
+                </a>
+            </li>
             <NavLink to={"/login"}>
             <li>
                 <a href="#" class="flex md:inline-flex p-4 items-center hover:bg-blue-300">
