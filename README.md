@@ -1,4 +1,4 @@
-# Báo cáo dự án Công nghệ phần mềm
+# Recify
 
 ## Thành viên nhóm:
 
@@ -7,6 +7,10 @@
 22022650 - Bùi Việt Anh
 
 22022673 - Long Hoàng Vinh
+
+## Báo cáo và demo video
+
+- **Link:** https://drive.google.com/drive/folders/1YzY-E-3nE0N7WOVdwZZzSRvOMBpYF3fo?usp=sharing
 
 ## Tổng quan về ứng dụng:
 
