@@ -6,13 +6,22 @@
 
 ## Cài đặt
 
-- 1. Cài đặt thư viện:
-pip install -r requirements.txt
+1. Cài đặt thư viện:
+- pip install -r requirements.txt
+
+## Công nghệ sử dụng
+
+## Tính năng sản phẩm
+
+- Nghe nhạc miễn phí
+- Tạo/Xóa playlist
+- Hiển thị lượt xem
+- Gợi ý nhạc
 
 ## Báo cáo và Demo video
-- **Link:** https://www.notion.so/B-o-c-o-d-n-C-ng-ngh-ph-n-m-m-01190aaecaed450bab0f62b9f4c084f9
 
 ## Thành viên
+
 - 22022560 - Phạm Khắc Tiệp
 
 - 22022650 - Bùi Việt Anh
