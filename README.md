@@ -8,7 +8,7 @@
 
 22022673 - Long Hoàng Vinh
 
-## 1. Tổng quan về ứng dụng:
+## Tổng quan về ứng dụng:
 
 - Recify là một trang web nghe nhạc trực tuyến, dành cho tất cả mọi người, thuộc tất cả mọi lứa tuổi và tất cả mọi ngành nghề. Recify cung cấp một kho tàng dữ liệu âm nhạc khổng lồ có thể đáp ứng nhu cầu sử dụng của đa dạng thể loại người dùng. Không giống những nền tảng nghe nhạc trên thị trường, Recify cho phép người dùng nghe nhạc miễn phí mà không có quảng cáo giữa chừng.
 
@@ -27,7 +27,11 @@
  
 - Phong cách âm nhạc của Đức hòa quyện giữa âm nhạc truyền thống Việt Nam và các xu hướng âm nhạc hiện đại. Anh luôn tìm kiếm và khám phá những âm thanh mới, không ngừng đổi mới để mang đến cho khán giả những trải nghiệm âm nhạc độc đáo. Đức đặc biệt yêu thích việc sáng tác những ca khúc mang đậm nét văn hóa và tâm hồn người Việt, truyền tải những thông điệp sâu sắc và ý nghĩa. Anh Đức có hứng thú với nền tảng âm nhạc Recify vì nền tảng này có thể cung cấp cho anh nhiều bài hát thuộc nhiều thể loại nhạc, tạo cảm hứng sáng tác cho anh.
 
-## 3. Tính năng sản phẩm:
+## Sơ đồ Use-Case
+
+![CNPM drawio (1)](https://github.com/phamtiep/recify-web-player/assets/144088322/dc8d6891-6fc1-4010-8dd7-634bd296574c)
+
+## Tính năng sản phẩm:
 
 ### a. Quản lí người dùng:
 
@@ -45,7 +49,7 @@
 
 - **Đưa ra gợi ý cho bài nhạc đang phát:** Hệ thống đưa ra 5 bài nhạc đề xuất dựa trên thông tin về bài nhạc đang được phát.
 
-## 4. Yêu cầu phi chức năng:
+## Yêu cầu phi chức năng:
 
 ### a. Hiệu suất:
 
@@ -61,7 +65,7 @@
 
 - **Giao diện:** Giao diện dễ sử dụng, trực quan cho mọi đối tượng người dùng.
 
-## 5. Công nghệ sử dụng:
+## Công nghệ sử dụng:
 
 ### a. Frontend:
 
@@ -69,13 +73,31 @@
 
 ### b. Backend:
 
+- Ngôn ngữ
+    - Java
+- Framework chính
+    - Springboot
+    - Spring Security
+    - Hibernate
+- Các tools
+    - Postman, Swagger, …
+
 ### c. Model:
 
 - Mô hình sử dụng thuật toán Collaborative filtering, mô hình K-nearest neighbor và thuật toán cosine similarity, đưa ra đề xuất dựa trên sự tương quan giữa lượt nghe của mỗi người dùng với mỗi bài nhạc.
 - Đối với mỗi bài nhạc, mô hình KNN và thuật toán cosine similarity sẽ trả về 5 bài nhạc có độ tương quan lớn nhất về số lượng lượt nghe giữa các người dùng.
 
-## 5. Kiến trúc phần mềm:
+## Thiết kế phần mềm:
 
 - Database
 
-## 6. Bảo mật:
+![database](https://github.com/phamtiep/recify-web-player/assets/144088322/005591f6-ee3a-472a-bef0-f6aee24a7ca6)
+
+- System Design
+
+![Sysdes](https://github.com/phamtiep/recify-web-player/assets/144088322/6690a0f2-5d07-48ee-a685-a1517a26a9c9)
+
+## Bảo mật:
+
+- Sử dụng JWT ( Json Web Token ) để bảo mật cũng như xác thực người dùng,
+- Sử dụng Spring Security nhằm xác thực cũng như phân quyền người dùng.
