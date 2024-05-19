@@ -1,15 +1,19 @@
 INSERT INTO mydb.user (username, password, role)  values ('admin', 'admin', 'ADMIN');
 
 
-INSERT INTO mydb.music (music_name, length_by_seconds, path_to_file, category) values ('ChacAiDoSeVe-SonTungMTP-3597661.mp3', 274, 'MusicUpload\\chill-music\\ChacAiDoSeVe-SonTungMTP-3597661.mp3', 'chill');
-INSERT INTO mydb.music (music_name, length_by_seconds, path_to_file, category) values ('good-night-160166.mp3', 147, 'MusicUpload\\chill-music\\good-night-160166.mp3', 'chill');
-INSERT INTO mydb.music (music_name, length_by_seconds, path_to_file, category) values ('lofi-chill-medium-version-159456.mp3', 67, 'MusicUpload\\chill-music\\lofi-chill-medium-version-159456.mp3', 'chill');
-INSERT INTO mydb.music (music_name, length_by_seconds, path_to_file, category) values ('ethereal-vistas-191254.mp3', 241, 'MusicUpload\\study-music\\ethereal-vistas-191254.mp3', 'study');
-INSERT INTO mydb.music (music_name, length_by_seconds, path_to_file, category) values ('Komiku - Friends, 2018.mp33', 64, 'MusicUpload\\study-music\\Komiku - Friends, 2018.mp3', 'study');
-INSERT INTO mydb.music (music_name, length_by_seconds, path_to_file, category) values ('lofi-study-112191.mp3', 147, 'MusicUpload\\study-music\\lofi-study-112191.mp3', 'study');
-INSERT INTO mydb.music (music_name, length_by_seconds, path_to_file, category) values ('blues-rock-energetic-203364.mp3', 72, 'MusicUpload\\workout-music\\blues-rock-energetic-203364.mp3', 'workout');
-INSERT INTO mydb.music (music_name, length_by_seconds, path_to_file, category) values ('funny-punk-rock-203366.mp3', 70, 'MusicUpload\\workout-music\\funny-punk-rock-203366.mp3', 'workout');
-INSERT INTO mydb.music (music_name, length_by_seconds, path_to_file, category) values ('sports-music-rock-opening-puncher-155346.mp3', 53, 'MusicUpload\\workout-music\\sports-music-rock-opening-puncher-155346.mp3', 'workout');
+INSERT INTO mydb.music (music_name, length_by_seconds, path_to_file, category) values ('ChacAiDoSeVe-SonTungMTP-3597661.mp3', 274, '../MusicUpload/chill-music/ChacAiDoSeVe-SonTungMTP-3597661.mp3','chill');
+INSERT INTO mydb.music (music_name, length_by_seconds, path_to_file, category) values ('good-night-160166.mp3', 147, '../MusicUpload/chill-music/good-night-160166.mp3', 'chill');
+INSERT INTO mydb.music (music_name, length_by_seconds, path_to_file, category) values ('lofi-chill-medium-version-159456.mp3', 67, '../MusicUpload/chill-music/lofi-chill-medium-version-159456.mp3', 'chill');
+INSERT INTO mydb.music (music_name, length_by_seconds, path_to_file, category) values ('ethereal-vistas-191254.mp3', 241, '../MusicUpload/study-music/ethereal-vistas-191254.mp3', 'study');
+INSERT INTO mydb.music (music_name, length_by_seconds, path_to_file, category) values ('Komiku - Friends, 2018.mp33', 64, '../MusicUpload/study-music/Komiku - Friends, 2018.mp3', 'study');
+INSERT INTO mydb.music (music_name, length_by_seconds, path_to_file, category) values ('good-night-160166.mp3', 147, '../MusicUpload/chill-music/good-night-160166.mp3', 'chill');
+INSERT INTO mydb.music (music_name, length_by_seconds, path_to_file, category) values ('lofi-chill-medium-version-159456.mp3', 67, '../MusicUpload/chill-music/lofi-chill-medium-version-159456.mp3', 'chill');
+INSERT INTO mydb.music (music_name, length_by_seconds, path_to_file, category) values ('ethereal-vistas-191254.mp3', 241, '../MusicUpload/study-music/ethereal-vistas-191254.mp3', 'study');
+INSERT INTO mydb.music (music_name, length_by_seconds, path_to_file, category) values ('Komiku - Friends, 2018.mp33', 64, '../MusicUpload/study-music/Komiku - Friends, 2018.mp3', 'study');
+INSERT INTO mydb.music (music_name, length_by_seconds, path_to_file, category) values ('lofi-study-112191.mp3', 147, '../MusicUpload/study-music/lofi-study-112191.mp3', 'study');
+INSERT INTO mydb.music (music_name, length_by_seconds, path_to_file, category) values ('blues-rock-energetic-203364.mp3', 72, '../MusicUpload/workout-music/blues-rock-energetic-203364.mp3', 'workout');
+INSERT INTO mydb.music (music_name, length_by_seconds, path_to_file, category) values ('funny-punk-rock-203366.mp3', 70, '../MusicUpload/workout-music/funny-punk-rock-203366.mp3', 'workout');
+INSERT INTO mydb.music (music_name, length_by_seconds, path_to_file, category) values ('sports-music-rock-opening-puncher-155346.mp3', 53, '../MusicUpload/workout-music/sports-music-rock-opening-puncher-155346.mp3', 'workout');
 
 
 
