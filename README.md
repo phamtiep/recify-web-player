@@ -12,6 +12,11 @@
 
 - **Google DriveDrive:** https://drive.google.com/drive/folders/1YzY-E-3nE0N7WOVdwZZzSRvOMBpYF3fo?usp=sharing
 
+## Cài đặt
+
+- Cài đặt thư viện:
+`pip install -r requirements.txt`
+
 ## Tổng quan về ứng dụng:
 
 - Recify là một trang web nghe nhạc trực tuyến, dành cho tất cả mọi người, thuộc tất cả mọi lứa tuổi và tất cả mọi ngành nghề. Recify cung cấp một kho tàng dữ liệu âm nhạc khổng lồ có thể đáp ứng nhu cầu sử dụng của đa dạng thể loại người dùng. Không giống những nền tảng nghe nhạc trên thị trường, Recify cho phép người dùng nghe nhạc miễn phí mà không có quảng cáo giữa chừng.
@@ -84,8 +89,12 @@
 
 ### c. Model:
 
-- Mô hình sử dụng thuật toán Collaborative filtering, mô hình K-nearest neighbor và thuật toán cosine similarity, đưa ra đề xuất dựa trên sự tương quan giữa lượt nghe của mỗi người dùng với mỗi bài nhạc.
-- Đối với mỗi bài nhạc, mô hình KNN và thuật toán cosine similarity sẽ trả về 5 bài nhạc có độ tương quan lớn nhất về số lượng lượt nghe giữa các người dùng.
+- Ngôn ngữ
+    - Python
+- Framework chính
+    - Flask
+- Các tools
+    - Postman
 
 ## Bảo mật:
 
