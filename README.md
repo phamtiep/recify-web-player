@@ -10,7 +10,12 @@
 
 ## Báo cáo và demo video
 
-- **Link:** https://drive.google.com/drive/folders/1YzY-E-3nE0N7WOVdwZZzSRvOMBpYF3fo?usp=sharing
+- **Google DriveDrive:** https://drive.google.com/drive/folders/1YzY-E-3nE0N7WOVdwZZzSRvOMBpYF3fo?usp=sharing
+
+## Cài đặt
+
+- Cài đặt thư viện:
+`pip install -r requirements.txt`
 
 ## Tổng quan về ứng dụng:
 
@@ -31,10 +36,6 @@
  
 - Phong cách âm nhạc của Đức hòa quyện giữa âm nhạc truyền thống Việt Nam và các xu hướng âm nhạc hiện đại. Anh luôn tìm kiếm và khám phá những âm thanh mới, không ngừng đổi mới để mang đến cho khán giả những trải nghiệm âm nhạc độc đáo. Đức đặc biệt yêu thích việc sáng tác những ca khúc mang đậm nét văn hóa và tâm hồn người Việt, truyền tải những thông điệp sâu sắc và ý nghĩa. Anh Đức có hứng thú với nền tảng âm nhạc Recify vì nền tảng này có thể cung cấp cho anh nhiều bài hát thuộc nhiều thể loại nhạc, tạo cảm hứng sáng tác cho anh.
 
-## Sơ đồ Use-Case
-
-![CNPM drawio (1)](https://github.com/phamtiep/recify-web-player/assets/144088322/dc8d6891-6fc1-4010-8dd7-634bd296574c)
-
 ## Tính năng sản phẩm:
 
 ### a. Quản lí người dùng:
@@ -52,22 +53,6 @@
 ### c. Gợi ý nhạc:
 
 - **Đưa ra gợi ý cho bài nhạc đang phát:** Hệ thống đưa ra 5 bài nhạc đề xuất dựa trên thông tin về bài nhạc đang được phát.
-
-## Yêu cầu phi chức năng:
-
-### a. Hiệu suất:
-
-- **Thời gian phản hồi:** Hệ thống phản hồi với người dùng dưới 5 giây.
-- **Không bị gián đoạn:** Recify tạo cho người dùng trải nghiệm nghe nhạc liền mạch.
-
-### b. Bảo mật:
-
-- **Bảo mật dữ liệu người dùng:** Tuân thủ các chuẩn mực bảo mật.
-- **Xác thực và ủy quyền:** Đảm bảo rằng chỉ những người dùng có quyền mới có thể truy cập vào các chức năng nhất định.
-
-### c. Khả năng sử dụng:
-
-- **Giao diện:** Giao diện dễ sử dụng, trực quan cho mọi đối tượng người dùng.
 
 ## Công nghệ sử dụng:
 
@@ -88,18 +73,12 @@
 
 ### c. Model:
 
-- Mô hình sử dụng thuật toán Collaborative filtering, mô hình K-nearest neighbor và thuật toán cosine similarity, đưa ra đề xuất dựa trên sự tương quan giữa lượt nghe của mỗi người dùng với mỗi bài nhạc.
-- Đối với mỗi bài nhạc, mô hình KNN và thuật toán cosine similarity sẽ trả về 5 bài nhạc có độ tương quan lớn nhất về số lượng lượt nghe giữa các người dùng.
-
-## Thiết kế phần mềm:
-
-- Database
-
-![database](https://github.com/phamtiep/recify-web-player/assets/144088322/005591f6-ee3a-472a-bef0-f6aee24a7ca6)
-
-- System Design
-
-![Sysdes](https://github.com/phamtiep/recify-web-player/assets/144088322/6690a0f2-5d07-48ee-a685-a1517a26a9c9)
+- Ngôn ngữ
+    - Python
+- Framework chính
+    - Flask
+- Tool
+    - Postman
 
 ## Bảo mật:
 
