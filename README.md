@@ -54,22 +54,6 @@
 
 - **Đưa ra gợi ý cho bài nhạc đang phát:** Hệ thống đưa ra 5 bài nhạc đề xuất dựa trên thông tin về bài nhạc đang được phát.
 
-## Yêu cầu phi chức năng:
-
-### a. Hiệu suất:
-
-- **Thời gian phản hồi:** Hệ thống phản hồi với người dùng dưới 5 giây.
-- **Không bị gián đoạn:** Recify tạo cho người dùng trải nghiệm nghe nhạc liền mạch.
-
-### b. Bảo mật:
-
-- **Bảo mật dữ liệu người dùng:** Tuân thủ các chuẩn mực bảo mật.
-- **Xác thực và ủy quyền:** Đảm bảo rằng chỉ những người dùng có quyền mới có thể truy cập vào các chức năng nhất định.
-
-### c. Khả năng sử dụng:
-
-- **Giao diện:** Giao diện dễ sử dụng, trực quan cho mọi đối tượng người dùng.
-
 ## Công nghệ sử dụng:
 
 ### a. Frontend:
@@ -93,7 +77,7 @@
     - Python
 - Framework chính
     - Flask
-- Các tools
+- Tool
     - Postman
 
 ## Bảo mật:
